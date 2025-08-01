@@ -1,83 +1,121 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Crown, Trophy, TrendingUp, Award } from 'lucide-react';
-import raceResultsData from '../data/raceResults.json';
-import { calculateDriverStandings, calculateConstructorStandings } from '../utils/pointsCalculator';
+import { loadSeason, calculateDriverStandings, calculateConstructorStandings, getAvailableSeasons } from '../utils/dataLoader';
 
 type HallOfFameView = 'champions' | 'wins' | 'points' | 'teams';
 
+interface Champion {
+  year: number;
+  driver: string;
+  team: string;
+  points: number;
+  inProgress: boolean;
+}
+
+interface DriverStats {
+  wins: number;
+  seasons: number[];
+  points: number;
+}
+
 const HallOfFame: React.FC = () => {
   const [currentView, setCurrentView] = useState<HallOfFameView>('champions');
+  const [champions, setChampions] = useState<Champion[]>([]);
+  const [mostWins, setMostWins] = useState<Array<{ driver: string; wins: number; seasons: string }>>([]);
+  const [mostPoints, setMostPoints] = useState<Array<{ driver: string; points: number; avgPerSeason: number }>>([]);
+  const [constructorChampions, setConstructorChampions] = useState<Array<{ year: number; team: string; points: number; inProgress: boolean }>>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
-  // Calculate champions for each season
-  const champions = Object.entries(raceResultsData).map(([year, seasonData]) => {
-    const standings = calculateDriverStandings(seasonData);
-    const champion = standings[0];
-    return {
-      year,
-      driver: champion?.driver || 'TBD',
-      team: champion?.team || 'TBD',
-      points: champion?.points || 0,
-      inProgress: year === '2027'
+  useEffect(() => {
+    const loadHallOfFameData = async () => {
+      try {
+        setLoading(true);
+        setError(null);
+
+        const availableSeasons = await getAvailableSeasons();
+        const allSeasonsData = await Promise.all(
+          availableSeasons.map(season => loadSeason(season))
+        );
+
+        // Calculate champions for each season
+        const championsData: Champion[] = allSeasonsData.map((seasonData, index) => {
+          const standings = calculateDriverStandings(seasonData);
+          const champion = standings[0];
+          const year = availableSeasons[index];
+          return {
+            year,
+            driver: champion?.driver || 'TBD',
+            team: champion?.team || 'TBD',
+            points: champion?.points || 0,
+            inProgress: year === Math.max(...availableSeasons)
+          };
+        });
+
+        // Calculate all-time wins and points
+        const driverStats: { [driver: string]: DriverStats } = {};
+        
+        allSeasonsData.forEach((seasonData, index) => {
+          const standings = calculateDriverStandings(seasonData);
+          const year = availableSeasons[index];
+          
+          standings.forEach(driver => {
+            if (!driverStats[driver.driver]) {
+              driverStats[driver.driver] = { wins: 0, seasons: [], points: 0 };
+            }
+            driverStats[driver.driver].wins += driver.wins;
+            driverStats[driver.driver].points += driver.points;
+            if (driver.wins > 0) {
+              driverStats[driver.driver].seasons.push(year);
+            }
+          });
+        });
+
+        const mostWinsData = Object.entries(driverStats)
+          .map(([driver, data]) => ({
+            driver,
+            wins: data.wins,
+            seasons: data.seasons.join(', ')
+          }))
+          .sort((a, b) => b.wins - a.wins)
+          .slice(0, 10);
+
+        const mostPointsData = Object.entries(driverStats)
+          .map(([driver, data]) => ({
+            driver,
+            points: data.points,
+            avgPerSeason: Math.round((data.points / availableSeasons.length) * 10) / 10
+          }))
+          .sort((a, b) => b.points - a.points)
+          .slice(0, 10);
+
+        // Calculate constructor champions
+        const constructorChampionsData = allSeasonsData.map((seasonData, index) => {
+          const standings = calculateConstructorStandings(seasonData);
+          const champion = standings[0];
+          const year = availableSeasons[index];
+          return {
+            year,
+            team: champion?.team || 'TBD',
+            points: champion?.points || 0,
+            inProgress: year === Math.max(...availableSeasons)
+          };
+        });
+
+        setChampions(championsData);
+        setMostWins(mostWinsData);
+        setMostPoints(mostPointsData);
+        setConstructorChampions(constructorChampionsData);
+
+      } catch (err) {
+        setError(err instanceof Error ? err.message : 'Erreur lors du chargement des données');
+      } finally {
+        setLoading(false);
+      }
     };
-  });
 
-  // Calculate all-time wins
-  const allTimeWins: { [driver: string]: { wins: number; seasons: string[] } } = {};
-  Object.entries(raceResultsData).forEach(([year, seasonData]) => {
-    const standings = calculateDriverStandings(seasonData);
-    standings.forEach(driver => {
-      if (!allTimeWins[driver.driver]) {
-        allTimeWins[driver.driver] = { wins: 0, seasons: [] };
-      }
-      allTimeWins[driver.driver].wins += driver.wins;
-      if (driver.wins > 0) {
-        allTimeWins[driver.driver].seasons.push(year);
-      }
-    });
-  });
-
-  const mostWins = Object.entries(allTimeWins)
-    .map(([driver, data]) => ({
-      driver,
-      wins: data.wins,
-      seasons: data.seasons.join(', ')
-    }))
-    .sort((a, b) => b.wins - a.wins)
-    .slice(0, 10);
-
-  // Calculate all-time points
-  const allTimePoints: { [driver: string]: { points: number; seasons: number } } = {};
-  Object.entries(raceResultsData).forEach(([year, seasonData]) => {
-    const standings = calculateDriverStandings(seasonData);
-    standings.forEach(driver => {
-      if (!allTimePoints[driver.driver]) {
-        allTimePoints[driver.driver] = { points: 0, seasons: 0 };
-      }
-      allTimePoints[driver.driver].points += driver.points;
-      allTimePoints[driver.driver].seasons += 1;
-    });
-  });
-
-  const mostPoints = Object.entries(allTimePoints)
-    .map(([driver, data]) => ({
-      driver,
-      points: data.points,
-      avgPerSeason: Math.round((data.points / data.seasons) * 10) / 10
-    }))
-    .sort((a, b) => b.points - a.points)
-    .slice(0, 10);
-
-  // Calculate constructor champions
-  const constructorChampions = Object.entries(raceResultsData).map(([year, seasonData]) => {
-    const standings = calculateConstructorStandings(seasonData);
-    const champion = standings[0];
-    return {
-      year,
-      team: champion?.team || 'TBD',
-      points: champion?.points || 0,
-      inProgress: year === '2027'
-    };
-  });
+    loadHallOfFameData();
+  }, []);
 
   const tabItems = [
     { id: 'champions' as HallOfFameView, label: 'Champions', icon: Crown },
@@ -85,6 +123,22 @@ const HallOfFame: React.FC = () => {
     { id: 'points' as HallOfFameView, label: 'Most Points', icon: TrendingUp },
     { id: 'teams' as HallOfFameView, label: 'Constructor Champions', icon: Award },
   ];
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center p-8">
+        <div className="text-white">Chargement des données...</div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="flex items-center justify-center p-8">
+        <div className="text-red-400">Erreur: {error}</div>
+      </div>
+    );
+  }
 
   const renderContent = () => {
     switch (currentView) {

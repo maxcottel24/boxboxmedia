@@ -1,9 +1,9 @@
 import React from 'react';
-import { Season } from '../App';
+import { AVAILABLE_SEASONS } from '../data/seasons';
 
 interface SeasonSelectorProps {
-  currentSeason: Season;
-  onSeasonChange: (season: Season) => void;
+  currentSeason: number;
+  onSeasonChange: (season: number) => void;
   disabled?: boolean;
 }
 
@@ -12,10 +12,10 @@ const SeasonSelector: React.FC<SeasonSelectorProps> = ({
   onSeasonChange, 
   disabled = false 
 }) => {
-  const seasons: { value: Season; label: string; status: string }[] = [
-    { value: '2025', label: '2025 Season', status: 'Completed' },
-    { value: '2026', label: '2026 Season', status: 'Completed' },
-    { value: '2027', label: '2027 Season', status: 'In Progress' },
+  const seasons: { value: number; label: string; status: string }[] = [
+    { value: 2025, label: '2025 Season', status: 'Completed' },
+    { value: 2026, label: '2026 Season', status: 'Completed' },
+    { value: 2027, label: '2027 Season', status: 'In Progress' },
   ];
 
   if (disabled) {

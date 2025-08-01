@@ -1,0 +1,54 @@
+{
+  "teams": {
+    "Red Bull": {
+      "fullName": "Oracle Red Bull Racing",
+      "teamPrincipal": "Volodymir Kardov",
+      "championships": 6
+    },
+    "McLaren": {
+      "fullName": "McLaren F1 Team",
+      "teamPrincipal": "Andrea Stella",
+      "championships": 0
+    },
+    "Ferrari": {
+      "fullName": "Scuderia Ferrari HP",
+      "teamPrincipal": "Frédéric Vasseur",
+      "championships": 0
+    },
+    "Mercedes": {
+      "fullName": "Mercedes-AMG Petronas F1 Team",
+      "teamPrincipal": "Toto Wolff",
+      "championships": 0
+    },
+    "Aston Martin": {
+      "fullName": "Aston Martin Aramco F1 Team",
+      "teamPrincipal": "Andy Cowell",
+      "championships": 0
+    },
+    "Alpine": {
+      "fullName": "BWT Alpine F1 Team",
+      "teamPrincipal": "Oliver Oakes",
+      "championships": 0
+    },
+    "Williams": {
+      "fullName": "Atlassian Williams Racing",
+      "teamPrincipal": "James Vowles",
+      "championships": 0
+    },
+    "Haas": {
+      "fullName": "Haas F1 Team",
+      "teamPrincipal": "Ayao Komatsu",
+      "championships": 0
+    },
+    "Racing Bulls": {
+      "fullName": "Visa Cash App Racing Bulls",
+      "teamPrincipal": "Laurent Mékiès",
+      "championships": 0
+    },
+    "Sauber": {
+      "fullName": "Stake F1 Team Kick Sauber",
+      "teamPrincipal": "Jonathan Wheatley",
+      "championships": 0
+    }
+  }
+} 

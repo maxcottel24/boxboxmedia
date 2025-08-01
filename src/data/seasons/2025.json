@@ -1,0 +1,92 @@
+{
+  "season": 2025,
+  "races": {
+    "Australia": {
+      "gpOrder": 1,
+      "polePosition": {
+        "driver": "Max Verstappen",
+        "team": "Red Bull"
+      },
+      "results": [
+        { "position": 1, "driver": "Liam Lawson", "team": "Red Bull", "points": 25, "fastestLap": true },
+        { "position": 2, "driver": "Fernando Alonso", "team": "Aston Martin", "points": 18 },
+        { "position": 3, "driver": "Max Verstappen", "team": "Red Bull", "points": 15 },
+        { "position": 4, "driver": "Esteban Ocon", "team": "Haas", "points": 12 },
+        { "position": 5, "driver": "Oscar Piastri", "team": "McLaren", "points": 10 },
+        { "position": 6, "driver": "Alexander Albon", "team": "Williams", "points": 8 },
+        { "position": 7, "driver": "George Russell", "team": "Mercedes", "points": 6 },
+        { "position": 8, "driver": "Yuki Tsunoda", "team": "Racing Bulls", "points": 4 },
+        { "position": 9, "driver": "Lewis Hamilton", "team": "Ferrari", "points": 2 },
+        { "position": 10, "driver": "Nico Hulkenberg", "team": "Sauber", "points": 1 },
+        { "position": 11, "driver": "Isack Hadjar", "team": "Racing Bulls" },
+        { "position": 12, "driver": "Lance Stroll", "team": "Aston Martin" },
+        { "position": 13, "driver": "Andrea Kimi Antonelli", "team": "Mercedes" },
+        { "position": 14, "driver": "Lando Norris", "team": "McLaren" },
+        { "position": 15, "driver": "Oliver Bearman", "team": "Haas" },
+        { "position": 16, "driver": "Carlos Sainz", "team": "Williams" },
+        { "position": 17, "driver": "Charles Leclerc", "team": "Ferrari" },
+        { "position": 18, "driver": "Pierre Gasly", "team": "Alpine" },
+        { "position": 19, "driver": "Jack Doohan", "team": "Alpine"},
+        { "position": 20, "driver": "Gabriel Bortoleto", "team": "Sauber"}
+      ]
+    },
+    "China": {
+      "gpOrder": 2,
+      "polePosition": {
+        "driver": "Lewis Hamilton",
+        "team": "Ferrari"
+      },
+      "results": [
+        { "position": 1, "driver": "Lewis Hamilton", "team": "Ferrari", "points": 25, "fastestLap": true },
+        { "position": 2, "driver": "Charles Leclerc", "team": "Ferrari", "points": 18 },
+        { "position": 3, "driver": "Max Verstappen", "team": "McLaren", "points": 15 },
+        { "position": 4, "driver": "Lando Norris", "team": "McLaren", "points": 12 },
+        { "position": 5, "driver": "Oscar Piastri", "team": "McLaren", "points": 10 },
+        { "position": 6, "driver": "George Russell", "team": "Mercedes", "points": 8 },
+        { "position": 7, "driver": "Fernando Alonso", "team": "Aston Martin", "points": 6 },
+        { "position": 8, "driver": "Pierre Gasly", "team": "Alpine", "points": 4},
+        { "position": 9, "driver": "Liam Lawson", "team": "Red Bull", "points": 2 },
+        { "position": 10, "driver": "Nico Hulkenberg", "team": "Sauber", "points": 1 },
+        { "position": 11, "driver": "Carlos Sainz", "team": "Williams" },
+        { "position": 12, "driver": "Lance Stroll", "team": "Aston Martin" },
+        { "position": 13, "driver": "Alexander Albon", "team": "Williams" },
+        { "position": 14, "driver": "Jack Doohan", "team": "Alpine" },
+        { "position": 15, "driver": "Gabriel Bortoleto", "team": "Sauber" },
+        { "position": 16, "driver": "Isack Hadjar", "team": "Racing Bulls" },
+        { "position": 17, "driver": "Yuki Tsunoda", "team": "Racing Bulls" },
+        { "position": 18, "driver": "Esteban Ocon", "team": "Haas" },
+        { "position": 19, "driver": "Andrea Kimi Antonelli", "team": "Mercedes"},
+        { "position": 20, "driver": "Oliver Bearman", "team": "Haas", "status": "DNF", "dnfReason": "Accident" }
+      ]
+    },
+    "Japan": {
+      "gpOrder": 3,
+      "polePosition": {
+        "driver": "Max Verstappen",
+        "team": "Red Bull"
+      },
+      "results": [
+        { "position": 1, "driver": "Max Verstappen", "team": "Red Bull", "points": 25, "fastestLap": true },
+        { "position": 2, "driver": "Fernando Alonso", "team": "Aston Martin", "points": 18 },
+        { "position": 3, "driver": "George Russell", "team": "Mercedes", "points": 15 },
+        { "position": 4, "driver": "Charles Leclerc", "team": "Ferrari", "points": 12 },
+        { "position": 5, "driver": "Oscar Piastri", "team": "McLaren", "points": 10 },
+        { "position": 6, "driver": "Lando Norris", "team": "McLaren", "points": 8 },
+        { "position": 7, "driver": "Lewis Hamilton", "team": "Ferrari", "points": 6 },
+        { "position": 8, "driver": "Pierre Gasly", "team": "Alpine", "points": 4 },
+        { "position": 9, "driver": "Carlos Sainz", "team": "Williams", "points": 2 },
+        { "position": 10, "driver": "Andrea Kimi Antonelli", "team": "Mercedes", "points": 1 },
+        { "position": 11, "driver": "Liam Lawson", "team": "Red Bull" },
+        { "position": 12, "driver": "Lance Stroll", "team": "Aston Martin" },
+        { "position": 13, "driver": "Jack Doohan", "team": "Alpine" },
+        { "position": 14, "driver": "Gabriel Bortoleto", "team": "Sauber" },
+        { "position": 15, "driver": "Oliver Bearman", "team": "Haas" },
+        { "position": 16, "driver": "Esteban Ocon", "team": "Haas" },
+        { "position": 17, "driver": "Nico Hulkenberg", "team": "Sauber" },
+        { "position": 18, "driver": "Alexander Albon", "team": "Williams" },
+        { "position": 19, "driver": "Isack Hadjar", "team": "Racing Bulls"},
+        { "position": 20, "driver": "Yuki Tsunoda", "team": "Racing Bulls"}
+      ]
+    }
+  }
+} 

@@ -7,11 +7,10 @@ import ConstructorStandings from './components/ConstructorStandings';
 import RaceResults from './components/RaceResults';
 import HallOfFame from './components/HallOfFame';
 
-export type Season = '2025' | '2026' | '2027';
 export type View = 'drivers' | 'constructors' | 'races' | 'hall-of-fame';
 
 function App() {
-  const [currentSeason, setCurrentSeason] = useState<Season>('2027');
+  const [currentSeason, setCurrentSeason] = useState<number>(2027);
   const [currentView, setCurrentView] = useState<View>('drivers');
 
   const navigationItems = [

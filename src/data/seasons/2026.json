@@ -1,0 +1,65 @@
+{
+  "season": 2026,
+  "races": {
+    "Australia": {
+      "gpOrder": 1,
+      "polePosition": {
+        "driver": "Lando Norris",
+        "team": "McLaren",
+        "time": "1:16.845"
+      },
+      "results": [
+        { "position": 1, "driver": "Lando Norris", "team": "McLaren", "points": 25, "fastestLap": true },
+        { "position": 2, "driver": "Max Verstappen", "team": "Red Bull", "points": 18 },
+        { "position": 3, "driver": "Charles Leclerc", "team": "Ferrari", "points": 15 },
+        { "position": 4, "driver": "Oscar Piastri", "team": "McLaren", "points": 12 },
+        { "position": 5, "driver": "George Russell", "team": "Mercedes", "points": 10 },
+        { "position": 6, "driver": "Carlos Sainz Jr.", "team": "Williams", "points": 8 },
+        { "position": 7, "driver": "Lewis Hamilton", "team": "Ferrari", "points": 6 },
+        { "position": 8, "driver": "Fernando Alonso", "team": "Aston Martin", "points": 4 },
+        { "position": 9, "driver": "Sergio Perez", "team": "Red Bull", "points": 2 },
+        { "position": 10, "driver": "Pierre Gasly", "team": "Alpine", "points": 1 },
+        { "position": 11, "driver": "Esteban Ocon", "team": "Alpine" },
+        { "position": 12, "driver": "Lance Stroll", "team": "Aston Martin" },
+        { "position": 13, "driver": "Valtteri Bottas", "team": "Sauber" },
+        { "position": 14, "driver": "Zhou Guanyu", "team": "Sauber" },
+        { "position": 15, "driver": "Nico Hulkenberg", "team": "Haas" },
+        { "position": 16, "driver": "Kevin Magnussen", "team": "Haas" },
+        { "position": 17, "driver": "Daniel Ricciardo", "team": "Racing Bulls" },
+        { "position": 18, "driver": "Yuki Tsunoda", "team": "Racing Bulls" },
+        { "position": 19, "driver": "Alexander Albon", "team": "Williams", "status": "DNF", "dnfReason": "Accident" },
+        { "position": 20, "driver": "Logan Sargeant", "team": "Williams", "status": "DNF", "dnfReason": "Engine" }
+      ]
+    },
+    "China": {
+      "gpOrder": 2,
+      "polePosition": {
+        "driver": "Max Verstappen",
+        "team": "Red Bull",
+        "time": "1:33.445"
+      },
+      "results": [
+        { "position": 1, "driver": "Max Verstappen", "team": "Red Bull", "points": 25, "fastestLap": true },
+        { "position": 2, "driver": "Lando Norris", "team": "McLaren", "points": 18 },
+        { "position": 3, "driver": "Oscar Piastri", "team": "McLaren", "points": 15 },
+        { "position": 4, "driver": "Charles Leclerc", "team": "Ferrari", "points": 12 },
+        { "position": 5, "driver": "George Russell", "team": "Mercedes", "points": 10 },
+        { "position": 6, "driver": "Lewis Hamilton", "team": "Ferrari", "points": 8 },
+        { "position": 7, "driver": "Carlos Sainz Jr.", "team": "Williams", "points": 6 },
+        { "position": 8, "driver": "Sergio Perez", "team": "Red Bull", "points": 4 },
+        { "position": 9, "driver": "Fernando Alonso", "team": "Aston Martin", "points": 2 },
+        { "position": 10, "driver": "Esteban Ocon", "team": "Alpine", "points": 1 },
+        { "position": 11, "driver": "Pierre Gasly", "team": "Alpine" },
+        { "position": 12, "driver": "Lance Stroll", "team": "Aston Martin" },
+        { "position": 13, "driver": "Valtteri Bottas", "team": "Sauber" },
+        { "position": 14, "driver": "Zhou Guanyu", "team": "Sauber" },
+        { "position": 15, "driver": "Nico Hulkenberg", "team": "Haas" },
+        { "position": 16, "driver": "Kevin Magnussen", "team": "Haas" },
+        { "position": 17, "driver": "Daniel Ricciardo", "team": "Racing Bulls" },
+        { "position": 18, "driver": "Yuki Tsunoda", "team": "Racing Bulls" },
+        { "position": 19, "driver": "Alexander Albon", "team": "Williams", "status": "DNF", "dnfReason": "Gearbox" },
+        { "position": 20, "driver": "Logan Sargeant", "team": "Williams", "status": "DNF", "dnfReason": "Accident" }
+      ]
+    }
+  }
+} 
